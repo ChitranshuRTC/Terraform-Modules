@@ -10,3 +10,7 @@ variable "ami_id" {}
 variable "instance_type" {}
 variable "key_name" {}
 variable "private_subnet_cidr" {}
+variable "ssh_port" {
+  description = "Port number for SSH access in the security group"
+  type        = number
+}

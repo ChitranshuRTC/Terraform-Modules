@@ -12,7 +12,6 @@ variable "availability_zone" {
   description = "AZ for subnet"
   type        = string
 }
-
 variable "vpc_name" {
   description = "VPC name"
   type        = string
@@ -24,4 +23,7 @@ variable "associate_public_ip" {
   type    = bool
   default = true
 }
-
+variable "public_route_cidr" {
+  type    = string
+  default = "0.0.0.0/0"
+}

@@ -14,6 +14,7 @@ module "security_group" {
   sg_name  = "my-sg"
   vpc_id   = module.vpc.vpc_id  
   ssh_cidr = var.office_ip      
+  ssh_port = var.ssh_port
 }
 
 module "ec2" {

@@ -10,3 +10,8 @@ variable "ssh_cidr" {
   description = "Office IP for SSH"
   type        = string
 }
+variable "ssh_port" {
+  description = "Port for SSH"
+  type        = number
+  default = 22
+}
