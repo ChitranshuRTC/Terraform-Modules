@@ -1,0 +1,10 @@
+vpc_cidr           = "10.0.0.0/16"
+public_subnet_cidr = "10.0.1.0/24"
+availability_zone  = "ap-south-1a"
+vpc_name           = "my-vpc"
+key_name      = "Rtctraningpem"
+ami_id        = "ami-07216ac99dc46a187"
+office_ip     = "14.195.217.66/32"
+instance_type = "t3.micro"
+private_subnet_cidr = "10.0.2.0/24"
+ssh_port = 22
