@@ -1,4 +1,4 @@
-# Main Terraform Configuration
+# Module for calling vpc
 module "vpc" {
   source              = "./modules/vpc"
   vpc_cidr            = var.vpc_cidr
@@ -10,7 +10,7 @@ module "vpc" {
   public_route_cidr   = var.public_route_cidr
 }
 
-# Security Group Module
+# module for calling security group
 module "security_group" {
   source           = "./modules/security-group"
   sg_name          = "my-sg"
@@ -22,7 +22,7 @@ module "security_group" {
   ingress_protocol = var.ingress_protocol
 }
 
-# EC2 Instance Module
+# Module for calling EC2 instance
 module "ec2" {
   source              = "./modules/ec2"
   instance_name       = "my-ec2"
@@ -34,7 +34,7 @@ module "ec2" {
   associate_public_ip = true
 }
 
-# Private EC2 Instance Module
+# Module for calling private EC2 instance
 module "ec2_private" {
   source              = "./modules/ec2"
   instance_name       = "private-ec2"
