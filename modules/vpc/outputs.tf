@@ -1,14 +1,19 @@
-# VPC Outputs
+# output for VPC id
 output "vpc_id" {
   value = aws_vpc.vpc.id
 }
 
-# Subnet Outputs
+# output for public subnet id
 output "public_subnet_id" {
   value = aws_subnet.public_subnet.id
 }
 
-# Internet Gateway Output
+# output for availability zone
+output "availability_zone" {
+  value = aws_subnet.public_subnet.availability_zone
+}
+
+# output for private subnet id
 output "private_subnet_id" {
   value = aws_subnet.private_subnet.id
 }

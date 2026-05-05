@@ -1,9 +1,9 @@
-# EC2 Instance Outputs
+# ec2 outputs 
 output "instance_id" {
-  value = aws_instance.my_instance.id
+  value = aws_instance.ec2_instance.id
 }
 
-# Public IP Output
+# public ip output
 output "public_ip" {
-  value = aws_instance.my_instance.public_ip
+  value = aws_instance.ec2_instance.public_ip
 }

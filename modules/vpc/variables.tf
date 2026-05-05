@@ -1,45 +1,45 @@
-# VPC Variables
+# variable for VPC CIDR block
 variable "vpc_cidr" {
   description = "CIDR block for VPC"
   type        = string
 }
 
-# Subnet Variables
+# variable for public subnet CIDR block
 variable "public_subnet_cidr" {
   description = "CIDR block for public subnet"
   type        = string
 }
 
-# Subnet Variables
+# variable for private subnet CIDR block
 variable "private_subnet_cidr" {
   description = "CIDR block for private subnet"
   type        = string
 }
 
-# Availability Zone Variable
+# variable for availability zone
 variable "availability_zone" {
   description = "AZ for subnet"
   type        = string
 }
 
-# VPC Name Variable
+# variable for VPC name
 variable "vpc_name" {
   description = "VPC name"
   type        = string
 }
 
-# Route Variables
+# variable for office public IP
 variable "office_cidr" {
   type = string
 }
 
-# Office IP Variable
+# variable for associate public IP address with EC2 instance
 variable "associate_public_ip" {
   type    = bool
   default = true
 }
 
-# Public Route CIDR Variable
+# variable for public route CIDR block
 variable "public_route_cidr" {
   type    = string
   default = "0.0.0.0/0"
