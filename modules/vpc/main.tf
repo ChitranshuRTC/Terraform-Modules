@@ -1,3 +1,4 @@
+# Resource for VPC
 resource "aws_vpc" "vpc" {
   cidr_block = var.vpc_cidr
 
@@ -6,7 +7,7 @@ resource "aws_vpc" "vpc" {
   }
 }
 
-# PUBLIC SUBNET
+# Resource for Public Subnet
 resource "aws_subnet" "public_subnet" {
   vpc_id                  = aws_vpc.vpc.id
   cidr_block              = var.public_subnet_cidr
@@ -18,7 +19,7 @@ resource "aws_subnet" "public_subnet" {
   }
 }
 
-#Private SUBNET
+# Resource for Private Subnet
 resource "aws_subnet" "private_subnet" {
   vpc_id            = aws_vpc.vpc.id
   cidr_block        = var.private_subnet_cidr
@@ -29,7 +30,7 @@ resource "aws_subnet" "private_subnet" {
   }
 }
 
-# Internet Gateway
+# Resource for Internet Gateway
 resource "aws_internet_gateway" "internet_gateway" {
   vpc_id = aws_vpc.vpc.id
 
@@ -38,7 +39,7 @@ resource "aws_internet_gateway" "internet_gateway" {
   }
 }
 
-# Route Tables
+# Resource for Route Tables
 resource "aws_route_table" "public_rt" {
   vpc_id = aws_vpc.vpc.id
 
@@ -47,7 +48,7 @@ resource "aws_route_table" "public_rt" {
   }
 }
 
-# Private Route Table
+# Resource for Private Route Table
 resource "aws_route_table" "private_rt" {
   vpc_id = aws_vpc.vpc.id
 
@@ -56,14 +57,14 @@ resource "aws_route_table" "private_rt" {
   }
 }
 
-# Public Route to IGW
+# Resource for Route to Internet Gateway
 resource "aws_route" "igw_route" {
   route_table_id         = aws_route_table.public_rt.id
   destination_cidr_block = var.public_route_cidr
   gateway_id             = aws_internet_gateway.internet_gateway.id
 }
 
-# Associate Route Tables
+# Associate Public Route Table
 resource "aws_route_table_association" "public" {
   subnet_id      = aws_subnet.public_subnet.id
   route_table_id = aws_route_table.public_rt.id
@@ -75,7 +76,7 @@ resource "aws_route_table_association" "private" {
   route_table_id = aws_route_table.private_rt.id
 }
 
-# NAT Gateway and Route for Private Subnet
+# Resource for Elastic IP
 resource "aws_eip" "elastic_ip" {
   domain = "vpc"
 
@@ -84,7 +85,7 @@ resource "aws_eip" "elastic_ip" {
   }
 }
 
-# NAT Gateway
+# Resource for NAT Gateway
 resource "aws_nat_gateway" "nat_gateway" {
   allocation_id = aws_eip.elastic_ip.id
   subnet_id     = aws_subnet.public_subnet.id
