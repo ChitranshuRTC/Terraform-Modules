@@ -6,15 +6,20 @@ module "vpc" {
   private_subnet_cidr = var.private_subnet_cidr
   availability_zone   = var.availability_zone
   vpc_name            = var.vpc_name
+  office_cidr         = var.office_cidr
+  public_route_cidr   = var.public_route_cidr
 }
 
 # Security Group Module
 module "security_group" {
-  source   = "./modules/security-group"
-  sg_name  = "my-sg"
-  vpc_id   = module.vpc.vpc_id
-  ssh_cidr = var.office_ip
-  ssh_port = var.ssh_port
+  source           = "./modules/security-group"
+  sg_name          = "my-sg"
+  vpc_id           = module.vpc.vpc_id
+  ssh_cidr         = var.office_ip
+  ssh_port         = var.ssh_port
+  office_cidr      = var.office_cidr
+  egress_protocol  = var.egress_protocol
+  ingress_protocol = var.ingress_protocol
 }
 
 # EC2 Instance Module

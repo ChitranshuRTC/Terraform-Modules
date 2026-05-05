@@ -29,7 +29,7 @@ variable "vpc_name" {
 }
 
 # Route Variables
-variable "private_subnet_cidr" {
+variable "office_cidr" {
   type = string
 }
 

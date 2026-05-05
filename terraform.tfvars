@@ -8,3 +8,6 @@ office_ip           = "14.195.217.66/32"
 instance_type       = "t3.micro"
 private_subnet_cidr = "10.0.2.0/24"
 ssh_port            = 22
+office_cidr         = "0.0.0.0/0"
+egress_protocol     = "-1"
+ingress_protocol    = "tcp"
