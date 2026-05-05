@@ -1,4 +1,4 @@
-# Module for calling vpc
+# module for calling vpc
 module "vpc" {
   source              = "./modules/vpc"
   vpc_cidr            = var.vpc_cidr
@@ -22,7 +22,7 @@ module "security_group" {
   ingress_protocol = var.ingress_protocol
 }
 
-# Module for calling EC2 instance
+# module for calling EC2 instance
 module "ec2" {
   source              = "./modules/ec2"
   instance_name       = "my-ec2"
@@ -34,7 +34,7 @@ module "ec2" {
   associate_public_ip = true
 }
 
-# Module for calling private EC2 instance
+# module for calling private EC2 instance
 module "ec2_private" {
   source              = "./modules/ec2"
   instance_name       = "private-ec2"
