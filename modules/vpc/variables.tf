@@ -39,7 +39,7 @@ variable "associate_public_ip" {
   default = true
 }
 
-# Route Variables
+# Public Route CIDR Variable
 variable "public_route_cidr" {
   type    = string
   default = "0.0.0.0/0"

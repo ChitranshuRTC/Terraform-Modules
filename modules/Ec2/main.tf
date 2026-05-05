@@ -1,5 +1,5 @@
 # EC2 Instance Resource
-resource "aws_instance" "my_instance" {
+resource "aws_instance" "Vpc_Ec2_Instance" {
   ami                         = var.ami_id
   instance_type               = var.instance_type
   subnet_id                   = var.subnet_id

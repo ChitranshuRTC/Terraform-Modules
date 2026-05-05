@@ -65,13 +65,13 @@ resource "aws_route" "igw_route" {
 }
 
 # Associate Public Route Table
-resource "aws_route_table_association" "public" {
+resource "aws_route_table_association" "association_public_rt" {
   subnet_id      = aws_subnet.public_subnet.id
   route_table_id = aws_route_table.public_rt.id
 }
 
 # Associate Private Route Table
-resource "aws_route_table_association" "private" {
+resource "aws_route_table_association" "association_private_rt" {
   subnet_id      = aws_subnet.private_subnet.id
   route_table_id = aws_route_table.private_rt.id
 }
